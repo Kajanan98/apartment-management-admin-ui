@@ -9,6 +9,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import { Navigate } from "react-router-dom";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -70,14 +71,48 @@ const routes = [
     route: "/authentication/sign-in",
     component: <SignIn />,
   },
-  {
-    type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
-    icon: <Icon fontSize="small">assignment</Icon>,
-    route: "/authentication/sign-up",
-    component: <SignUp />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Sign Up",
+  //   key: "sign-up",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/authentication/sign-up",
+  //   component: <SignUp />,
+  // },
+  // {
+  //   type: "collapse",
+  //   name: "Sign In",
+  //   key: "sign-in",
+  //   icon: <Icon fontSize="small">login</Icon>,
+  //   route: "*",
+  //   component:  <Navigate to="/authentication/sign-in" />,
+  // },
 ];
 
+
+const authRoutes = [
+  {
+    type: "collapse",
+    name: "Sign In",
+    key: "sign-in",
+    icon: <Icon fontSize="small">login</Icon>,
+    route: "/authentication/sign-in",
+    component: <SignIn />,
+  },
+  // { path: 'forgotPassword', element: <ForgotPassword /> },
+  // { path: 'resetPassword/:email/:token', element: <ResetPassword /> },
+  // { path: 'register', element: <Register /> },
+  {
+    type: "collapse",
+    name: "Sign In",
+    key: "navigate",
+    icon: <Icon fontSize="small">login</Icon>,
+    route: "*",
+    component: <Navigate to="/authentication/sign-in" />,
+  },
+]
+
 export default routes;
+export {
+  authRoutes
+}
